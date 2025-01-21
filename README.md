@@ -5,10 +5,15 @@ This repository contains the work for our ITCS 4155 class project. Our team is u
 
 ## Team Members
 **SCRUM Master** Nihal Adhikary
+
 **Product Owner** Chris Berns (Team Lead)
+
 **Developer** Diptesh Mool
+
 **Developer** Dhruv Mukherjee
+
 **Developer** Shlok Singh
+
 **Developer** Evan Stark
 
 ## Project Goals
