@@ -32,7 +32,7 @@ Our workflow includes:
 3. **Sprint Retrospectives** to reflect on the sprint and identify areas for improvement.
 4. **Backlog Grooming** to ensure tasks are clearly defined and prioritized.
 
-We use tools like [insert project management tool, e.g., Trello/Jira/GitHub Projects] to manage our backlog and track progress.
+We use GitHub tools to manage our backlog and track progress.
 
 ## Project Setup
 To set up the project locally:
@@ -82,7 +82,7 @@ We follow a collaborative approach to development. To contribute:
    ```
 
 ## Communication
-Our team communicates via [insert communication platform, e.g., Microsoft Teams/Slack/Discord].
+Our team communicates via SMS messages/GitHug messenging.
 
 ## Contact
 For any questions concerning the project, please contact:
@@ -91,8 +91,8 @@ For any questions concerning the project, please contact:
 cberns@charlotte.edu
 
 ## License
-[Include license information here, e.g., MIT License, if applicable.]
+MIT License
 
 ---
 
-For any questions, please contact [your contact email or team representative].
+For any questions, please contact Chris Berns.
