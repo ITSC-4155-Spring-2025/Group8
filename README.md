@@ -4,12 +4,12 @@
 This repository contains the work for our ITCS 4155 class project. Our team is utilizing the SCRUM framework to collaborate and develop a software solution. The project emphasizes agile development, iterative progress, and consistent communication.
 
 ## Team Members
-- Nihal Adhikary
-- Chris Berns (Team Lead and Product Owner)
-- Diptesh Mool
-- Dhruv Mukherjee
-- Shlok Singh
-- Evan Stark
+**SCRUM Master** Nihal Adhikary
+**Product Owner** Chris Berns (Team Lead)
+**Developer** Diptesh Mool
+**Developer** Dhruv Mukherjee
+**Developer** Shlok Singh
+**Developer** Evan Stark
 
 ## Project Goals
 The primary goal of this project is to design, develop, and deliver a functional software application while practicing SCRUM methodologies. Our objectives include:
