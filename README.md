@@ -87,7 +87,7 @@ We follow a collaborative approach to development. To contribute:
    ```
 
 ## Communication
-Our team communicates via SMS messages/GitHug messenging.
+Our team communicates via SMS messages/GitHub messenging.
 
 ## Contact
 For any questions concerning the project, please contact:
