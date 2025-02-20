@@ -42,25 +42,33 @@ We use GitHub tools to manage our backlog and track progress.
 ## Project Setup
 To set up the project locally:
 
-1. Clone the repository:
+Clone the repository:
    ```bash
    git clone <repository_url>
    ```
-
-2. Navigate to the project directory:
+   
+## FrontEnd Setup
+Navigate to the project directory:
    ```bash
-   cd <project_directory>
+   cd frontend/finfit-frontend
    ```
 
-3. Install dependencies:
+Install dependencies:
    ```bash
-   <instructions to install dependencies>
+   npm install
    ```
 
-4. Run the project:
+Run the project:
    ```bash
-   <instructions to run the project>
+   npm start
    ```
+### Notes:
+
+- Ensure Node.js (version 16+) is installed. You can check by running:
+```bash
+node -v
+```
+
 
 ## Repository Structure
 - `/src`: Source code
