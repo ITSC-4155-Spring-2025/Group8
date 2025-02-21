@@ -40,11 +40,17 @@ Our workflow includes:
 We use GitHub tools to manage our backlog and track progress.
 
 ## Project Setup (Both Mac and Windows)
+
+Make sure you have Node js installed on your system:
+https://nodejs.org/en
+Use Google Chrome to run the project to ensure all the features run properly.
+Use your VSCode terminal or some other terminal.
+
 To set up the project locally:
 
 Clone the repository:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/ITSC-4155-Spring-2025/Group8.git
    ```
    
 ## FrontEnd Setup
@@ -68,6 +74,8 @@ Run the project:
 ```bash
 node -v
 ```
+
+
 
 
 ## Repository Structure
