@@ -30,7 +30,7 @@ export function User() {
                     <p className="text-gray-600">Manage your profile settings here.</p>
                 </div>
             </div>
-            <Footer />
+            
         </div>
     );
 }

@@ -40,7 +40,7 @@ export default function Leaderboard() {
           ))}
         </tbody>
       </table>
-      <Footer />
+      
     </div>
   );
 }
