@@ -39,7 +39,7 @@ Our workflow includes:
 
 We use GitHub tools to manage our backlog and track progress.
 
-## Project Setup
+## Project Setup (Both Mac and Windows)
 To set up the project locally:
 
 Clone the repository:
