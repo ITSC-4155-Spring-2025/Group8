@@ -41,12 +41,12 @@ We use GitHub tools to manage our backlog and track progress.
 
 ## Project Setup (Both Mac and Windows)
 
-Make sure you have Node js installed on your system:
-https://nodejs.org/en
-Use Google Chrome to run the project to ensure all the features run properly.
+Make sure you have Node js installed on your system:\
+https://nodejs.org/en/ \
+Use <u>Google Chrome</u> to run the project to ensure all the features run properly.\
 Use your VSCode terminal or some other terminal.
 
-To set up the project locally:
+**To set up the project locally:**
 
 Clone the repository:
    ```bash
@@ -67,6 +67,14 @@ Install dependencies:
 Run the project:
    ```bash
    npm start
+   ```
+Navigate to the user page:
+ ```bash
+   http://localhost:3000/user
+   ```
+Navigate to the leaderboard page:
+ ```bash
+   http://localhost:3000/leaderboard
    ```
 ### Notes:
 
