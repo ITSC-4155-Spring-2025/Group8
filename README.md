@@ -4,17 +4,12 @@
 This repository contains the work for our ITCS 4155 class project. Our team is utilizing the SCRUM framework to collaborate and develop a software solution. The project emphasizes agile development, iterative progress, and consistent communication.
 
 ## Team Members
-**SCRUM Master** Nihal Adhikary
-
-**Product Owner** Chris Berns (Team Lead)
-
-**Developer** Diptesh Mool
-
-**Developer** Dhruv Mukherjee
-
-**Developer** Shlok Singh
-
-**Developer** Evan Stark
+**SCRUM Master** Nihal Adhikary  
+**Product Owner** Chris Berns (Team Lead)  
+**Developer** Diptesh Mool  
+**Developer** Dhruv Mukherjee  
+**Developer** Shlok Singh  
+**Developer** Evan Stark  
 
 ## Project Goals
 The primary goal of this project is to design, develop, and deliver a functional software application while practicing SCRUM methodologies. Our objectives include:
@@ -39,89 +34,125 @@ Our workflow includes:
 
 We use GitHub tools to manage our backlog and track progress.
 
-## Project Setup (Both Mac and Windows)
+---
 
-Make sure you have Node js installed on your system:\
-https://nodejs.org/en/ \
-Use <u>Google Chrome</u> to run the project to ensure all the features run properly.\
-Use your VSCode terminal or some other terminal.
+# **Project Setup (Both Mac and Windows)**
 
-**To set up the project locally:**
+## **Step 1: Install Node.js**
+1. Download Node.js from: [Node.js official website](https://nodejs.org/en/)
+2. Install the **LTS (Long-Term Support) version**.
+3. After installation, verify it is installed by running:
+   ```bash
+   node -v
+   ```
+   If successful, it will return a version number.
 
-Clone the repository:
+---
+
+## **Step 2: Install Git**
+Git is required to download the project.
+
+1. Check if Git is installed by running:
+   ```bash
+   git --version
+   ```
+   If Git is not installed, download it from: [Git official website](https://git-scm.com/)
+
+---
+
+## **Step 3: Clone the Project from GitHub**
+1. Open **Command Prompt (Windows)** or **Terminal (Mac/Linux)**.
+2. Navigate to the directory where you want to store the project (e.g., Desktop):
+   ```bash
+   cd Desktop
+   ```
+3. Clone the repository:
    ```bash
    git clone https://github.com/ITSC-4155-Spring-2025/Group8.git
    ```
-   
-## FrontEnd Setup
-Navigate to the project directory:
+4. Move into the project folder:
    ```bash
-   cd frontend/finfit-frontend
+   cd Group8
    ```
 
-Install dependencies:
-   ```bash
-   npm install
-   ```
+---
 
-Run the project:
-   ```bash
-   npm start
-   ```
-Navigate to the user page:
- ```bash
-   http://localhost:3000/user
-   ```
-Navigate to the leaderboard page:
- ```bash
-   http://localhost:3000/leaderboard
-   ```
-### Notes:
+## **Step 4: Frontend Setup**
+The frontend is the **user interface** of the project. We need to install dependencies and run it.
 
-- Ensure Node.js (version 16+) is installed. You can check by running:
+### **Navigate to the Frontend Directory**
 ```bash
-node -v
+cd frontend/finfit-frontend
 ```
 
+### **Install Frontend Dependencies**
+```bash
+npm install
+```
 
+### **Run the Frontend**
+```bash
+npm start
+```
 
+### **Access the Web Pages**
+- **User Page:** [http://localhost:3000/user](http://localhost:3000/user)
+- **Leaderboard Page:** [http://localhost:3000/leaderboard](http://localhost:3000/leaderboard)
 
-## Repository Structure
+---
+
+## **Repository Structure**
 - `/src`: Source code
 - `/docs`: Project documentation
 - `/tests`: Test cases
 - `/backlog`: Backlog items and sprint planning documents
 
-## Contributing
+---
+
+## **Contributing to the Project**
 We follow a collaborative approach to development. To contribute:
 
-1. Create a branch for your feature:
+1. **Create a branch for your feature:**
    ```bash
    git checkout -b <branch_name>
    ```
-
-2. Commit your changes:
+2. **Make your changes and commit them:**
    ```bash
    git commit -m "<commit_message>"
    ```
-
-3. Push your changes and create a pull request:
+3. **Push your changes and create a pull request:**
    ```bash
    git push origin <branch_name>
    ```
 
-## Communication
-Our team communicates via SMS messages/GitHub messenging.
+---
 
-## Contact
+## **Troubleshooting**
+
+### **Node.js or Git Not Found**
+- Ensure you have installed them correctly.
+- Restart your computer and try again.
+
+### **Frontend Not Running**
+- If `npm start` fails, try:
+   ```bash
+   npm cache clean --force
+   npm install
+   npm start
+   ```
+
+---
+
+## **Communication**
+Our team communicates via SMS messages/GitHub messaging.
+
+## **Contact**
 For any questions concerning the project, please contact:
 
 **Chris Berns** (Team Lead and Product Owner)  
-cberns@charlotte.edu
+cberns@charlotte.edu  
 
-## License
-MIT License
-
----
+## **License**
+MIT License  
 
 For any questions, please contact Chris Berns.
