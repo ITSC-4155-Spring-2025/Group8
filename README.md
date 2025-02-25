@@ -98,6 +98,7 @@ npm start
 ### **Access the Web Pages**
 - **User Page:** [http://localhost:3000/user](http://localhost:3000/user)
 - **Leaderboard Page:** [http://localhost:3000/leaderboard](http://localhost:3000/leaderboard)
+- **Login Page:** (http://localhost:3000/login)
 
 ---
 
