@@ -56,7 +56,7 @@ function Testimonial(){
     ];
 
     return(
-        <div className="flex flex-col justify-center py-10 mx-auto mb-10">
+        <div className="justify-center py-10 mx-auto mb-10">
             <div className="flex flex-col justify-center text-center">
                 <h2 className="font-sora font-bold text-2xl py-3 text-green-600">Testimonials</h2>
                 <h1 className="font-sora text-4xl font-bold">What Our Users Say</h1>
