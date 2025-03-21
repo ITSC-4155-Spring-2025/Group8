@@ -1,10 +1,9 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
-export default function Leaderboard() {
-
+function Leaderboard() {
   const [scores, setScores] = useState([]);
 
   useEffect(() => {
@@ -19,28 +18,48 @@ export default function Leaderboard() {
   const sortedScores = [...scores].sort((a, b) => b.score - a.score);
 
   return (
-    <div>
-        <Navbar />
-      <h1>Leaderboard</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>Rank</th>
-            <th>Name</th>
-            <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedScores.map((player, index) => (
-            <tr key={player.id}>
-              <td>{index + 1}</td>
-              <td>{player.name}</td>
-              <td>{player.score}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="flex flex-col min-h-screen bg-gray-100 text-gray-800">
       
+      <Navbar />
+
+     
+      <main className="flex-grow container mx-auto px-4 py-12">
+        <h1 className="text-4xl font-bold text-center mb-8 text-green-600">Leaderboard</h1>
+
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-white rounded-lg shadow-md overflow-hidden">
+            <thead className="bg-green-500 text-white">
+              <tr>
+                <th className="py-4 px-6 text-left text-sm font-semibold uppercase tracking-wider">Rank</th>
+                <th className="py-4 px-6 text-left text-sm font-semibold uppercase tracking-wider">Name</th>
+                <th className="py-4 px-6 text-left text-sm font-semibold uppercase tracking-wider">Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sortedScores.map((player, index) => (
+                <tr key={player.id} className="border-b hover:bg-green-50 transition">
+                  <td className="py-4 px-6">{index + 1}</td>
+                  <td className="py-4 px-6">{player.name}</td>
+                  <td className="py-4 px-6">{player.score}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        
+        <div className="text-center mt-10">
+          <Link to="/" className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow">
+            Back to Home
+          </Link>
+        </div>
+      </main>
+
+     
+      <Footer />
     </div>
   );
 }
+
+export default Leaderboard;
+
