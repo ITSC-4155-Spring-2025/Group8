@@ -13,7 +13,8 @@ function Navbar(){
                     <li>
                         <Link to ="/login" className="p-4 cursor-pointer font-semibold hover:text-lime-500">Login</Link>
                     </li>
-                    <Link to="/login"><button className="p-4 mx-2 font-semibold bg-lime-500 text-white rounded-lg shadow-md hover:bg-white hover:text-[#359c32] transition-all duration-300 ease-in-out whitespace-nowrap">
+                    <Link to="/login"><button className="p-4 mx-2 font-semibold bg-lime-500 
+                    text-white rounded-lg shadow-md hover:bg-white hover:text-[#359c32] transition-all duration-300 ease-in-out whitespace-nowrap">
                         Get Started
                     </button>
                     </Link>

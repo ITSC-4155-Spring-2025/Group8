@@ -3,7 +3,10 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import { User }  from './pages/User';
 import Leaderboard  from './pages/Leaderboard';
+import Games from "./pages/Games";
+import Learning from "./pages/Learning";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BringToFront } from "lucide-react";
 
 function App() {
   return (
@@ -14,6 +17,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path = "/User" element = {<User />}/>
           <Route path = "/Leaderboard" element = {<Leaderboard />}/>
+          <Route path="/Games" element = {<Games/>}/>
+          <Route path="/Learning" element = {<Learning/>}/>
         </Routes>
       </Router>
     </div>
