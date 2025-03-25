@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "cra-template": "1.2.0",
-    "lucide-react": "^0.479.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.5",
+<<<<<<< HEAD
     "react-scripts": "5.0.1",
+=======
+    "react-scripts": "^5.0.1",
+>>>>>>> 6269f7a (Created User and Leaderboard)
     "web-vitals": "^4.2.4"
   },
   "scripts": {
