@@ -1,12 +1,19 @@
 import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
+import Hero from '../components/Home/Hero';
 import Footer from '../components/Footer';
+import Purpose from '../components/Home/Purpose';
+import Features from '../components/Home/Features';
+import Testimonial from '../components/Home/Testimonials';
 
 function Home() {
   return (
     <div>
       <Navbar />
       <Hero />
+      <Purpose />
+      <Features />
+      <Testimonial />
+      <Footer />
       
     </div>
   );

@@ -15,7 +15,7 @@ function LoginForm() {
         <div className="flex justify-center items-center h-full">
 
             <form onSubmit={handleSubmit} className="w-[400px] mx-auto p-8 rounded-md shadow-lg bg-white">
-                <h1 className="text-3xl text-center font-bold py-8 text-green-600">Welcome Back!</h1>
+                <h1 className="text-3xl text-center font-sora font-bold py-8 text-green-600">Welcome Back!</h1>
 
                 <div className="flex flex-col mb-4">
                     <label className="font-semibold">Email</label>
