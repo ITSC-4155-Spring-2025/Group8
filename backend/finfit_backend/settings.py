@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -73,13 +74,24 @@ WSGI_APPLICATION = 'finfit_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# Updating the database settings to match MySQL implementation.
+# SOURCES USED
+# https://www.geeksforgeeks.org/how-to-integrate-mysql-database-with-django/?ref=gcse_outind
+# https://www.youtube.com/watch?v=wP89gN7k1sU
+# https://www.youtube.com/watch?v=5g_xIwxLSJk
+
+# TODO: Rehaul DB system based on the tutorial in the 3rd link.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'finfit_tables',
         'USER': 'root',
         'PASSWORD': 'softwareEGR',      # May need to change password depending on who's running it.
-        'HOST': 'localhost'
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'OPTIONS': {
+            'sql_mode': "STRICT_TRANS_TABLES"
+        }
     }
 }
 
