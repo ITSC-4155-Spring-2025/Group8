@@ -5,6 +5,7 @@ import { User }  from './pages/User';
 import Leaderboard  from './pages/Leaderboard';
 import Games from "./pages/Games";
 import Learning from "./pages/Learning";
+import Trivia from "./pages/Trivia";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { BringToFront } from "lucide-react";
 
@@ -19,6 +20,7 @@ function App() {
           <Route path = "/Leaderboard" element = {<Leaderboard />}/>
           <Route path="/Games" element = {<Games/>}/>
           <Route path="/Learning" element = {<Learning/>}/>
+          <Route path="/Games/Trivia" element = {<Trivia/>}/>
         </Routes>
       </Router>
     </div>
