@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'users'
 ]
 
 MIDDLEWARE = [
@@ -80,10 +78,10 @@ WSGI_APPLICATION = 'finfit_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'FinFit_DB',
-        'USER': 'finfit_admin',
-        'PASSWORD': 'Hello123',  
-        'HOST': 'localhost',
+        'NAME': 'finfit_tables',
+        'USER': 'root',
+        'PASSWORD': 'ShlokSingh1234',  
+        'HOST': '127.0.0.1',
         'PORT': '3306',
     }
 }
@@ -130,3 +128,23 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+INSTALLED_APPS += [
+    'rest_framework',
+    'rest_framework.authtoken',
+    'corsheaders',
+    'api',  
+]
+
+MIDDLEWARE.insert(0, 'corsheaders.middleware.CorsMiddleware')
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # React frontend
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
