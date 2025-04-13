@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { User } from "lucide-react";
 
-function Navbar_User() {
+function UserNavBar() {
   return (
-    <nav className="bg-white shadow-md border-b">
+    <nav className="bg-white/50 backdrop-blur-md shadow-md border-b">
       <div className="max-w-7xl mx-auto flex justify-between items-center h-16 px-6">
 
-        <h1 className="text-3xl font-extrabold text-green-600 tracking-wide"> FinFit</h1>
+        <h1 className="text-3xl mr-10 -ml-25 font-extrabold text-green-600 tracking-wide"> FinFit</h1>
         <ul className="hidden md:flex space-x-6">
             <Link to="/Leaderboard" className="text-gray-700 font-medium hover:text-green-600 
             transition-all duration-300">
@@ -24,13 +24,13 @@ function Navbar_User() {
         
         <Link
           to="/User"
-          className="hidden md:flex items-center space-x-2 bg-green-600 text-white px-5 py-2 rounded-full font-semibold shadow-md hover:bg-green-700 transition-all duration-300">
+          className="hidden md:flex ml-8 items-center space-x-2 bg-red-500 text-white px-5 py-2 rounded-full font-semibold shadow-md hover:bg-red-700 transition-all duration-300">
           <User size={20} />
-          <span>Hi Dhruv!</span>
+          <span className="mr-5">Sign Out</span>
         </Link>
       </div>
     </nav>
   );
 }
 
-export default Navbar_User;
+export default UserNavBar;

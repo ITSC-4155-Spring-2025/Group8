@@ -11,7 +11,7 @@ function Leaderboard() {
     const initialScores = [
       { id: 1, name: 'Player 1', score: 100 },
       { id: 2, name: 'Player 2', score: 80 },
-      { id: 3, name: 'Player 3', score: 90 },
+      { id: 3, name: 'Player 3', score: 100 },
     ];
     setScores(initialScores);
   }, []);
@@ -19,7 +19,7 @@ function Leaderboard() {
   const sortedScores = [...scores].sort((a, b) => b.score - a.score);
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100 text-gray-800">
+    <div className="flex flex-col min-h-screen bg-[radial-gradient(circle_at_top,_#d1fae5,_#ffffff_60%,_#d1fae5)] text-gray-800">
       
       <Navbar />
 

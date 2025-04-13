@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Navbar_User from '../components/Navbar_User';
+import Footer from '../components/Footer';
 
 function Learning() {
   const [learningPassage, setLearningPassage] = useState('');
@@ -54,7 +55,7 @@ function Learning() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-900">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#d1fae5,_#ffffff_60%,_#d1fae5)] text-gray-900">
       <Navbar_User />
       <div className="max-w-3xl mx-auto p-6 space-y-6">
         <h1 className="text-3xl font-bold text-center">Financial Literacy Learning</h1>
@@ -103,6 +104,7 @@ function Learning() {
           </button>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

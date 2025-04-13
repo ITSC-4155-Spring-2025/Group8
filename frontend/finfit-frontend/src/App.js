@@ -7,6 +7,11 @@ import Games from "./pages/Games";
 import Learning from "./pages/Learning";
 import Trivia from "./pages/Trivia";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Bingo from "./pages/Bingo";
+import Memory from "./pages/Memory";
+import Savingsprint from "./pages/Savings-sprint";
+
+
 
 
 function App() {
@@ -21,6 +26,9 @@ function App() {
           <Route path="/Games" element = {<Games/>}/>
           <Route path="/Learning" element = {<Learning/>}/>
           <Route path="/Games/Trivia" element = {<Trivia/>}/>
+          <Route path="/Games/bingo" element={<Bingo />} /> 
+          <Route path="/Games/Memory" element={<Memory />} />
+          <Route path="/Games/Savings-sprint" element={<Savingsprint />} />
         </Routes>
       </Router>
     </div>

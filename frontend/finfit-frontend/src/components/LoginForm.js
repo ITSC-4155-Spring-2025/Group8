@@ -42,6 +42,12 @@ function LoginForm( {handleSignUpClick}) {
           Welcome Back!
         </h1>
 
+
+                <button type="submit" className="w-full py-3 mt-4 bg-lime-500 hover:bg-lime-400 transition-all duration-200 ease-in-out text-white font-semibold rounded-xl">
+                    Login
+                    
+                </button>
+
         <div className="flex flex-col mb-4">
           <label className="font-semibold">Email</label>
           <input
