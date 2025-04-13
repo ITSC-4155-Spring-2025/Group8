@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-function LoginForm() {
+
+function LoginForm( {handleSignUpClick}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -75,6 +76,12 @@ function LoginForm() {
         >
           Login
         </button>
+
+        <p className="text-center mt-4">Don't Have an Account?</p>
+        <a className="text-lime-500 font-semibold text-center block mt-2 cursor-pointer" onClick={handleSignUpClick}> 
+            Register
+        </a>
+
       </form>
     </div>
   );
