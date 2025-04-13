@@ -6,7 +6,11 @@ import Leaderboard  from './pages/Leaderboard';
 import Games from "./pages/Games";
 import Learning from "./pages/Learning";
 import {BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Bingo from "./pages/Bingo";
+import Memory from "./pages/Memory";
+import Savingsprint from "./pages/Savings-sprint";
 import { BringToFront } from "lucide-react";
+
 
 function App() {
   return (
@@ -19,6 +23,9 @@ function App() {
           <Route path = "/Leaderboard" element = {<Leaderboard />}/>
           <Route path="/Games" element = {<Games/>}/>
           <Route path="/Learning" element = {<Learning/>}/>
+          <Route path="/Games/bingo" element={<Bingo />} /> 
+          <Route path="/Games/Memory" element={<Memory />} />
+          <Route path="/Games/Savings-sprint" element={<Savingsprint />} />
         </Routes>
       </Router>
     </div>
