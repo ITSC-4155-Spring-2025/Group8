@@ -3,7 +3,7 @@ import { User } from "lucide-react";
 
 function Navbar_User() {
   return (
-    <nav className="bg-white/50 backdrop-blur-md shadow-md border-b">
+    <nav className="bg-white shadow-md border-b">
       <div className="max-w-7xl mx-auto flex justify-between items-center h-16 px-6">
 
         <h1 className="text-3xl font-extrabold text-green-600 tracking-wide"> FinFit</h1>
