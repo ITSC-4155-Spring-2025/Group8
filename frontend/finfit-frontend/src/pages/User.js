@@ -1,49 +1,52 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import UserNavBar from "../components/UserNavBar";
-import Footer from '../components/Footer';
-import Reward from '../components/Reward';
+import Footer from "../components/Footer";
+import Reward from "../components/Reward";
 
 export function User() {
-  const [username, setUsername] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [points, setPoints] = useState(0);
 
   const rewards = [
     {
       id: 1,
-      imageSrc: '/gamingchair.webp',
-      title: 'SecretLab Gaming Chair',
-      buttonText: 'Redeem',
-      points: '500',
+      imageSrc: "/gamingchair.webp",
+      title: "SecretLab Gaming Chair",
+      buttonText: "Redeem",
+      points: "500",
     },
     {
       id: 2,
-      imageSrc: '/ps5.jpg',
-      title: 'Sony PlayStation 5',
-      buttonText: 'Redeem',
-      points: '1000',
+      imageSrc: "/ps5.jpg",
+      title: "Sony PlayStation 5",
+      buttonText: "Redeem",
+      points: "1000",
     },
     {
       id: 3,
-      imageSrc: '/iphone16promax.jpg',
-      title: 'iPhone 16 Pro Max',
-      buttonText: 'Redeem',
-      points: '2500',
+      imageSrc: "/iphone16promax.jpg",
+      title: "iPhone 16 Pro Max",
+      buttonText: "Redeem",
+      points: "2500",
     },
   ];
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const token = localStorage.getItem('authToken');
-        const response = await fetch('http://localhost:8000/api/user/profile/', {
-          headers: {
-            'Authorization': `Token ${token}`
+        const token = localStorage.getItem("authToken");
+        const response = await fetch(
+          "http://localhost:8000/api/user/profile/",
+          {
+            headers: {
+              Authorization: `Token ${token}`,
+            },
           }
-        });
+        );
 
-        if (!response.ok) throw new Error('Failed to fetch user data');
+        if (!response.ok) throw new Error("Failed to fetch user data");
 
         const data = await response.json();
         setUsername(data.username);
@@ -51,7 +54,7 @@ export function User() {
         setLastName(data.last_name);
         setPoints(data.points);
       } catch (error) {
-        console.error('Error loading user profile:', error);
+        console.error("Error loading user profile:", error);
       }
     };
 
@@ -87,16 +90,20 @@ export function User() {
               <h2 className="text-lg font-semibold text-gray-800">
                 Your points
               </h2>
-              <p className="font-bold text-purple-500 text-center text-2xl">{points}</p>
+              <p className="font-bold text-purple-500 text-center text-2xl">
+                {points}
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       <div className="w-full bg-white-100 py-6 mt-8">
-        <h1 className="text-4xl font-bold text-center text-green-600 mb-14">Your Available Rewards</h1>
+        <h1 className="text-4xl font-bold text-center text-green-600 mb-14">
+          Your Available Rewards
+        </h1>
         <div className="flex flex-wrap justify-center mb-10 gap-6 px-4">
-          {rewards.map(reward => (
+          {rewards.map((reward) => (
             <Reward
               key={reward.id}
               imageSrc={reward.imageSrc}

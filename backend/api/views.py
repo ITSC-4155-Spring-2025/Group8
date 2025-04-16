@@ -24,11 +24,13 @@ def login_view(request):
     token, _ = Token.objects.get_or_create(user=user)
     return Response({'token': token.key})
 
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def logout_view(request):
     request.user.auth_token.delete()
     return Response({'message': 'Logged out successfully'})
+
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
@@ -40,6 +42,7 @@ def user_profile(request):
         'email': request.user.email,
         'points': 50  # default placeholder value
     })
+
 
 @api_view(['POST'])
 def register_user(request):
