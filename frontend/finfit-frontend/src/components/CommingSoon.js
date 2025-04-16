@@ -11,9 +11,12 @@ export default function ComingSoon() {
       <Navbar_User />
 
       <main className="flex-grow flex flex-col items-center justify-center text-center px-4 py-12">
-        <h1 className="text-5xl font-bold text-green-700 mb-4">🚧 Coming Soon!</h1>
+        <h1 className="text-5xl font-bold text-green-700 mb-4">
+          🚧 Coming Soon!
+        </h1>
         <p className="text-gray-700 text-lg max-w-xl mb-8">
-          We're still working on this game to make it awesome! In the meantime, check out one of our current games and keep learning while having fun.
+          We're still working on this game to make it awesome! In the meantime,
+          check out one of our current games and keep learning while having fun.
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center">
