@@ -23,7 +23,7 @@ function UserNavBar() {
         </ul>
         
         <Link
-          to="/User"
+          to="/"
           className="hidden md:flex ml-8 items-center space-x-2 bg-red-500 text-white px-5 py-2 rounded-full font-semibold shadow-md hover:bg-red-700 transition-all duration-300">
           <User size={20} />
           <span className="mr-5">Sign Out</span>

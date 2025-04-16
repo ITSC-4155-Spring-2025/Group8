@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import UserNavBar from "../components/UserNavBar";
 import Footer from '../components/Footer';
 import Reward from '../components/Reward';
 
 export function User() {
-  const [username, setUsername] = useState('FinanceBro123');
+  const [username, setUsername] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [points, setPoints] = useState(0);
 
   const rewards = [
     {
@@ -30,29 +33,52 @@ export function User() {
     },
   ];
 
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const token = localStorage.getItem('authToken');
+        const response = await fetch('http://localhost:8000/api/user/profile/', {
+          headers: {
+            'Authorization': `Token ${token}`
+          }
+        });
+
+        if (!response.ok) throw new Error('Failed to fetch user data');
+
+        const data = await response.json();
+        setUsername(data.username);
+        setFirstName(data.first_name);
+        setLastName(data.last_name);
+        setPoints(data.points);
+      } catch (error) {
+        console.error('Error loading user profile:', error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
   return (
-    <div className="flex flex-col min-h-screen">
-    
+    <div className="flex flex-col min-h-screen bg-[radial-gradient(circle_at_top,_#d1fae5,_#ffffff_60%,_#d1fae5)]">
       <UserNavBar />
 
-    
       <div className="px-6 mt-12 mb-6 max-w-4xl mx-auto w-full">
         <div className="bg-white shadow-xl rounded-2xl p-6 flex items-start">
-          
           <img
             src="/my-image.png"
             alt="ProfilePic"
             className="w-[6.3rem] h-[6.2rem] object-cover rounded-full"
           />
           <div className="ml-4 flex-1">
-            <h2 className="text-2xl font-semibold text-gray-800">{username}</h2>
+            <h2 className="text-2xl font-semibold text-gray-800">
+              {firstName} {lastName} ({username})
+            </h2>
             <p className="text-gray-500">Charlotte, NC</p>
             <p className="text-gray-700 mt-2">
               College student learning finance using FinFit.
             </p>
           </div>
 
-         
           <div className="ml-auto text-right">
             <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full mb-4">
               Edit Profile
@@ -61,17 +87,12 @@ export function User() {
               <h2 className="text-lg font-semibold text-gray-800">
                 Your points
               </h2>
-              <p className="font-bold text-purple-500 text-center text-2xl">150</p>
+              <p className="font-bold text-purple-500 text-center text-2xl">{points}</p>
             </div>
           </div>
         </div>
       </div>
 
-      
-      
-      
-
-      
       <div className="w-full bg-white-100 py-6 mt-8">
         <h1 className="text-4xl font-bold text-center text-green-600 mb-14">Your Available Rewards</h1>
         <div className="flex flex-wrap justify-center mb-10 gap-6 px-4">
@@ -87,7 +108,6 @@ export function User() {
         </div>
       </div>
 
-    
       <div className="mt-12">
         <Footer />
       </div>

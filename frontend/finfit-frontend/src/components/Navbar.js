@@ -8,7 +8,7 @@ function Navbar(){
                 <ul className="flex items-center">
 
                     <li>
-                        <span className="p-4 cursor-pointer font-semibold hover:text-lime-500">Learn</span>
+                    <Link to ="/login" className="p-4 cursor-pointer font-semibold hover:text-lime-500">Learn</Link>
                     </li>
                     <li>
                         <Link to ="/login" className="p-4 cursor-pointer font-semibold hover:text-lime-500">Login</Link>
