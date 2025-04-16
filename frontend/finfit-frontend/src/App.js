@@ -12,8 +12,6 @@ import Memory from "./pages/Memory";
 import Savingsprint from "./pages/Savings-sprint";
 
 
-
-
 function App() {
   return (
     <div className="App">

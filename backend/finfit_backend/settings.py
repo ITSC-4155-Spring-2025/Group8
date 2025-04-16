@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'finfit_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'finfit_tables',
-        'USER': 'root',
-        'PASSWORD': 'ShlokSingh1234',  
-        'HOST': '127.0.0.1',
+        'NAME': 'Evan_script_tablename',
+        'USER': 'Enter_SQL_USER',
+        'PASSWORD': 'enter_SQL_password',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }

@@ -107,7 +107,7 @@ function Trivia() {
     
 
   return (
-    <div>
+    <div className='bg-[radial-gradient(circle_at_top,_#d1fae5,_#ffffff_60%,_#d1fae5)]'>
       <Navbar_User />
 
       <div className='flex flex-col justify-center items-center py-10 h-full'>
