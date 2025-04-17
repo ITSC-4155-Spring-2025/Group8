@@ -4,114 +4,6 @@ import { useState, useEffect } from "react";
 import Navbar_User from "../components/Navbar_User";
 import Footer from "../components/Footer";
 
-const questions = {
-  Easy: [
-    {
-      question: "What is the term for money earned from work?",
-      options: ["Income", "Interest", "Dividend", "Capital"],
-      correctAnswer: "Income",
-    },
-    {
-      question: "What is a budget?",
-      options: [
-        "A financial plan for income and expenses",
-        "A bank account",
-        "A type of credit card",
-        "A loan document",
-      ],
-      correctAnswer: "A financial plan for income and expenses",
-    },
-    {
-      question: "Which of these is NOT a typical banking product?",
-      options: [
-        "Stock options",
-        "Savings account",
-        "Checking account",
-        "Certificate of deposit",
-      ],
-      correctAnswer: "Stock options",
-    },
-  ],
-  Medium: [
-    {
-      question: "What is compound interest?",
-      options: [
-        "Interest earned on both the principal and accumulated interest",
-        "Interest paid only on the principal",
-        "A fee charged by banks",
-        "A type of bank account",
-      ],
-      correctAnswer:
-        "Interest earned on both the principal and accumulated interest",
-    },
-    {
-      question: "What does APR stand for?",
-      options: [
-        "Annual Percentage Rate",
-        "Applied Payment Return",
-        "Asset Protection Reserve",
-        "Account Processing Ratio",
-      ],
-      correctAnswer: "Annual Percentage Rate",
-    },
-    {
-      question: "Which investment typically carries the highest risk?",
-      options: [
-        "Individual stocks",
-        "Government bonds",
-        "Certificates of deposit",
-        "Money market accounts",
-      ],
-      correctAnswer: "Individual stocks",
-    },
-  ],
-  Hard: [
-    {
-      question: "What is dollar-cost averaging?",
-      options: [
-        "Investing a fixed amount at regular intervals regardless of price",
-        "Converting foreign currency to dollars",
-        "A taxation method for investments",
-        "Calculating inflation rates",
-      ],
-      correctAnswer:
-        "Investing a fixed amount at regular intervals regardless of price",
-    },
-    {
-      question: "Which of these is NOT a factor in determining a credit score?",
-      options: [
-        "Your education level",
-        "Payment history",
-        "Credit utilization",
-        "Length of credit history",
-      ],
-      correctAnswer: "Your education level",
-    },
-    {
-      question: "What is a fiduciary duty in financial advising?",
-      options: [
-        "Legal obligation to act in the client's best interest",
-        "Requirement to offer diverse investment options",
-        "Duty to provide quarterly reports",
-        "Obligation to achieve positive returns",
-      ],
-      correctAnswer: "Legal obligation to act in the client's best interest",
-    },
-  ],
-};
-
-const data = [
-  {
-    option: "Easy",
-    style: { backgroundColor: "lightgreen", textColor: "white" },
-  },
-  { option: "Medium", style: { backgroundColor: "green", textColor: "white" } },
-  {
-    option: "Hard",
-    style: { backgroundColor: "darkgreen", textColor: "white" },
-  },
-];
-
 function Trivia() {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
@@ -120,6 +12,117 @@ function Trivia() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [score, setScore] = useState(0);
+  const questions = {
+    Easy: [
+      {
+        question: "What is the term for money earned from work?",
+        options: ["Income", "Interest", "Dividend", "Capital"],
+        correctAnswer: "Income",
+      },
+      {
+        question: "What is a budget?",
+        options: [
+          "A financial plan for income and expenses",
+          "A bank account",
+          "A type of credit card",
+          "A loan document",
+        ],
+        correctAnswer: "A financial plan for income and expenses",
+      },
+      {
+        question: "Which of these is NOT a typical banking product?",
+        options: [
+          "Stock options",
+          "Savings account",
+          "Checking account",
+          "Certificate of deposit",
+        ],
+        correctAnswer: "Stock options",
+      },
+    ],
+    Medium: [
+      {
+        question: "What is compound interest?",
+        options: [
+          "Interest earned on both the principal and accumulated interest",
+          "Interest paid only on the principal",
+          "A fee charged by banks",
+          "A type of bank account",
+        ],
+        correctAnswer:
+          "Interest earned on both the principal and accumulated interest",
+      },
+      {
+        question: "What does APR stand for?",
+        options: [
+          "Annual Percentage Rate",
+          "Applied Payment Return",
+          "Asset Protection Reserve",
+          "Account Processing Ratio",
+        ],
+        correctAnswer: "Annual Percentage Rate",
+      },
+      {
+        question: "Which investment typically carries the highest risk?",
+        options: [
+          "Individual stocks",
+          "Government bonds",
+          "Certificates of deposit",
+          "Money market accounts",
+        ],
+        correctAnswer: "Individual stocks",
+      },
+    ],
+    Hard: [
+      {
+        question: "What is dollar-cost averaging?",
+        options: [
+          "Investing a fixed amount at regular intervals regardless of price",
+          "Converting foreign currency to dollars",
+          "A taxation method for investments",
+          "Calculating inflation rates",
+        ],
+        correctAnswer:
+          "Investing a fixed amount at regular intervals regardless of price",
+      },
+      {
+        question:
+          "Which of these is NOT a factor in determining a credit score?",
+        options: [
+          "Your education level",
+          "Payment history",
+          "Credit utilization",
+          "Length of credit history",
+        ],
+        correctAnswer: "Your education level",
+      },
+      {
+        question: "What is a fiduciary duty in financial advising?",
+        options: [
+          "Legal obligation to act in the client's best interest",
+          "Requirement to offer diverse investment options",
+          "Duty to provide quarterly reports",
+          "Obligation to achieve positive returns",
+        ],
+        correctAnswer: "Legal obligation to act in the client's best interest",
+      },
+    ],
+  };
+
+  const data = [
+    {
+      option: "Easy",
+      style: { backgroundColor: "lightgreen", textColor: "white" },
+    },
+    {
+      option: "Medium",
+      style: { backgroundColor: "green", textColor: "white" },
+    },
+    {
+      option: "Hard",
+      style: { backgroundColor: "darkgreen", textColor: "white" },
+    },
+  ];
 
   const handleSpinClick = () => {
     if (!mustSpin) {

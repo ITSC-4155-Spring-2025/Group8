@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-
-function LoginForm( {handleSignUpClick}) {
+function LoginForm({ handleSignUpClick }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,15 +13,14 @@ function LoginForm( {handleSignUpClick}) {
       const response = await fetch("http://localhost:8000/api/login/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
         localStorage.setItem("authToken", data.token);
-        alert("Login successful!");
-        window.location.href = "/User"; 
+        window.location.href = "/Dashboard";
       } else {
         alert(data.error || "Login failed");
       }
@@ -41,7 +39,6 @@ function LoginForm( {handleSignUpClick}) {
         <h1 className="text-3xl text-center font-sora font-bold py-8 text-green-600">
           Welcome Back!
         </h1>
-
 
         <div className="flex flex-col mb-4">
           <label className="font-semibold">Email</label>
@@ -79,10 +76,12 @@ function LoginForm( {handleSignUpClick}) {
         </button>
 
         <p className="text-center mt-4">Don't Have an Account?</p>
-        <a className="text-lime-500 font-semibold text-center block mt-2 cursor-pointer" onClick={handleSignUpClick}> 
-            Register
+        <a
+          className="text-lime-500 font-semibold text-center block mt-2 cursor-pointer"
+          onClick={handleSignUpClick}
+        >
+          Register
         </a>
-
       </form>
     </div>
   );
