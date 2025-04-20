@@ -3,7 +3,9 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
+from rest_framework.views import APIView
 from django.contrib.auth.models import User
+from .serializers import useSerializer
 from django.contrib.auth.hashers import make_password
 
 
@@ -71,3 +73,26 @@ def register_user(request):
 
     token, _ = Token.objects.get_or_create(user=user)
     return Response({'message': 'User created successfully', 'token': token.key})
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])  
+def update_points(request):
+    points_earned = request.data.get('points_earned', 50)
+    user = request.user  
+    
+    if points_earned < 0:
+        return Response({"error": "Points earned cannot be negative."}, status=400)
+    
+    
+    user.points += points_earned
+    user.save()  
+    
+    return Response({"message": "Points updated successfully", "points": user.points})
+
+class LeaderboardView(APIView):
+    def get(self, request):
+       
+        leaderboard = User.objects.all().order_by('-points')
+        serializer = useSerializer(leaderboard, many=True)
+        return Response(serializer.data)
