@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'finfit_tables',
-        'USER': 'django_user',
-        'PASSWORD': 'FinFitAdmin',
+        'USER': 'root',
+        'PASSWORD': 'ShlokSingh1234',
         'HOST': 'localhost',
         'PORT': '3306',
     }
