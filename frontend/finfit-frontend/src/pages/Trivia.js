@@ -145,8 +145,29 @@ function Trivia() {
       setIsAnswered(true);
 
       if (answer === question.correctAnswer) {
-        setScore(score + 1);
-      }
+        const pts = difficulty === "Easy"   ? 10
+                  : difficulty === "Medium" ? 30
+                  : 50;
+        setScore(prev => prev + pts);
+  
+        const token = localStorage.getItem("authToken");
+        fetch("http://localhost:8000/api/award_points/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+        body: JSON.stringify({ points: pts }),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+        if (data.new_total !== undefined) {
+            localStorage.setItem("userPoints", data.new_total);
+            console.log("Backend new total:", data.new_total);
+          }
+        })
+        .catch(console.error);
+    }
     }
   };
 
@@ -164,7 +185,7 @@ function Trivia() {
         )}
 
         {question && (
-          <div className="bg-white  shadow-lg rounded-xl p-10 px-20 mb-4 w-[500px] h-[400px]">
+          <div className="bg-white  shadow-lg rounded-xl p-10 px-20 mb-4 w-[500px] h-[500px]">
             <h2 className="font-sora font-bold text-lg mb-4">Score: {score}</h2>
             <h3 className="font-sora text-green-600 text-lg mb-4">
               {question.question}
