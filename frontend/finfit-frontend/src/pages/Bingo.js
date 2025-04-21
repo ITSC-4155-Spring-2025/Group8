@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import Navbar_User from "../components/Navbar_User";
 import Footer from "../components/Footer";
+const API_BASE = process.env.REACT_APP_API_URL;
+
 
 const topics = [
   "Budgeting Basics",
@@ -38,17 +40,66 @@ const generateBingoBoard = () => {
     marked: false,
   }));
 };
+// returns true if any row, col, or diagonal of 5 is fully marked
+const checkBingo = (board) => {
+  const size = 5;
+  // rows
+  for (let r = 0; r < size; r++) {
+    if (board.slice(r * size, r * size + size).every(c => c.marked))
+      return true;
+  }
+  // cols
+  for (let c = 0; c < size; c++) {
+    if (Array.from({ length: size }, (_, i) => board[c + i * size]).every(c => c.marked))
+      return true;
+  }
+  // diagonals
+  if (Array.from({ length: size }, (_, i) => board[i * (size + 1)]).every(c => c.marked))
+    return true;
+  if (Array.from({ length: size }, (_, i) => board[(i + 1) * (size - 1)]).every(c => c.marked))
+    return true;
+  return false;
+};
 
 function Bingo() {
-  const [board, setBoard] = useState(generateBingoBoard());
-
+  // const [board, setBoard] = useState(generateBingoBoard());
+  const [board, setBoard]       = useState(generateBingoBoard());
+  const [hasAwarded, setHasAwarded] = useState(false);
+  // const toggleMark = (id) => {
+  //   setBoard((prevBoard) =>
+  //     prevBoard.map((cell) =>
+  //       cell.id === id ? { ...cell, marked: !cell.marked } : cell
+  //     )
+  //   );
+  // };
   const toggleMark = (id) => {
-    setBoard((prevBoard) =>
-      prevBoard.map((cell) =>
-        cell.id === id ? { ...cell, marked: !cell.marked } : cell
-      )
+  setBoard((prev) => {
+    const next = prev.map((cell) =>
+      cell.id === id ? { ...cell, marked: !cell.marked } : cell
     );
-  };
+
+    // if we just hit Bingo and haven't awarded yet:
+    if (checkBingo(next) && !hasAwarded) {
+      setHasAwarded(true);
+      fetch(`${API_BASE}/api/award_points/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.getItem("authToken")}`
+        },
+        body: JSON.stringify({ points: 50 })
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("Awarded 50 points, new total:", data.points);
+        })
+        .catch((err) => console.error("Award points failed:", err));
+    }
+
+    return next;
+  });
+};
+
 
   const markedCount = board.filter((cell) => cell.marked).length;
 
@@ -100,7 +151,11 @@ function Bingo() {
         <div className="flex justify-center mt-8">
           <button
             className="px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-blue-700 transition duration-200"
-            onClick={() => setBoard(generateBingoBoard())}
+            //onClick={() => setBoard(generateBingoBoard())}
+             onClick={() => {
+                setBoard(generateBingoBoard());
+                setHasAwarded(false);
+               }}
           >
             {" "}
             Reset Board{" "}
