@@ -3,7 +3,7 @@ import UserNavBar from "../components/UserNavBar";
 import Footer from "../components/Footer";
 import Reward from "../components/Reward";
 
-export function User() {
+function User() {
   const [username, setUsername] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -64,33 +64,36 @@ export function User() {
   return (
     <div className="flex flex-col min-h-screen bg-[radial-gradient(circle_at_top,_#d1fae5,_#ffffff_60%,_#d1fae5)]">
       <UserNavBar />
-
       <div className="px-6 mt-12 mb-6 max-w-4xl mx-auto w-full">
-        <div className="bg-white shadow-xl rounded-2xl p-6 flex items-start">
+        <div className="relative bg-white shadow-xl rounded-3xl p-8 flex flex-col md:flex-row items-center md:items-start overflow-hidden transition-all duration-500 hover:shadow-2xl">
+          <div className="absolute -top-10 -left-10 w-52 h-52 bg-green-200 rounded-full blur-3xl opacity-30 z-[-1]" />
+
           <img
             src="/my-image.png"
             alt="ProfilePic"
-            className="w-[6.3rem] h-[6.2rem] object-cover rounded-full"
+            className="w-28 h-28 object-cover rounded-full border-4 border-green-300 shadow-md"
           />
-          <div className="ml-4 flex-1">
-            <h2 className="text-2xl font-semibold text-gray-800">
-              {firstName} {lastName} ({username})
+
+          <div className="md:ml-6 mt-4 md:mt-0 flex-1">
+            <h2 className="text-3xl font-bold text-gray-800 font-sora">
+              {firstName} {lastName}{" "}
+              <span className="text-sm text-gray-500">({username})</span>
             </h2>
-            <p className="text-gray-500">Charlotte, NC</p>
-            <p className="text-gray-700 mt-2">
-              College student learning finance using FinFit.
+            <p className="text-green-600 mt-1 font-semibold">Charlotte, NC</p>
+            <p className="text-gray-600 mt-2">
+              College student learning finance with FinFit 🎓💸
             </p>
           </div>
 
-          <div className="ml-auto text-right">
-            <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full mb-4">
+          <div className="md:ml-auto mt-6 md:mt-0 text-right">
+            <button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full mb-4 transition duration-300">
               Edit Profile
             </button>
-            <div className="bg-gray-100 rounded-xl p-4">
-              <h2 className="text-lg font-semibold text-gray-800">
-                Your points
+            <div className="bg-gray-100 rounded-2xl p-4 shadow-inner">
+              <h2 className="text-md font-semibold text-gray-700">
+                Your Points
               </h2>
-              <p className="font-bold text-purple-500 text-center text-2xl">
+              <p className="font-bold text-3xl text-purple-600 mt-1 transition-all duration-300 hover:scale-105">
                 {points}
               </p>
             </div>
@@ -98,26 +101,31 @@ export function User() {
         </div>
       </div>
 
-      <div className="w-full bg-white-100 py-6 mt-8">
-        <h1 className="text-4xl font-bold text-center text-green-600 mb-14">
-          Your Available Rewards
+      <div className="py-10 px-4 bg-white">
+        <h1 className="text-4xl font-bold text-center text-green-600 mb-12 font-sora">
+          🎁 Your Available Rewards 🎁
         </h1>
-        <div className="flex flex-wrap justify-center mb-10 gap-6 px-4">
+
+        <div className="flex flex-wrap justify-center gap-6">
           {rewards.map((reward) => (
-            <Reward
+            <div
               key={reward.id}
-              imageSrc={reward.imageSrc}
-              title={reward.title}
-              buttonText={reward.buttonText}
-              points={reward.points}
-            />
+              className="transition-transform duration-300 hover:scale-105"
+            >
+              <Reward
+                imageSrc={reward.imageSrc}
+                title={reward.title}
+                buttonText={reward.buttonText}
+                points={reward.points}
+              />
+            </div>
           ))}
         </div>
       </div>
 
-      <div className="mt-12">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }
+
+export default User;

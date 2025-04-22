@@ -3,7 +3,9 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
-from django.contrib.auth.models import User
+from rest_framework.views import APIView
+from .models import CustomUser as User
+from .serializers import useSerializer
 from django.contrib.auth.hashers import make_password
 
 
@@ -40,7 +42,7 @@ def user_profile(request):
         'first_name': request.user.first_name,
         'last_name': request.user.last_name,
         'email': request.user.email,
-        'points': 50  # default placeholder value
+        'points': request.user.points
     })
 
 
@@ -66,8 +68,43 @@ def register_user(request):
         email=email,
         password=make_password(password),
         first_name=first_name,
-        last_name=last_name
+        last_name=last_name,
+         points=50
     )
 
     token, _ = Token.objects.get_or_create(user=user)
     return Response({'message': 'User created successfully', 'token': token.key})
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def update_points(request):
+    points_earned = request.data.get('points_earned', 50)
+    user = request.user
+
+    if points_earned < 0:
+        return Response({"error": "Points earned cannot be negative."}, status=400)
+
+    user.points += points_earned
+    user.save()
+
+    return Response({"message": "Points updated successfully", "points": user.points})
+
+
+class LeaderboardView(APIView):
+    def get(self, request):
+        leaderboard = User.objects.all().order_by('-points')
+        serializer = useSerializer(leaderboard, many=True)
+        return Response(serializer.data)
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def award_points(request):
+    user = request.user
+    increment = int(request.data.get('points', 50))
+    if increment < 0:
+        return Response({'error': 'Points must be a positive number'}, status=400)
+    user.points += increment
+    user.save()
+
+    return Response({'points': user.points})

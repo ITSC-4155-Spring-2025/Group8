@@ -1,33 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import Navbar_User from "../components/Navbar_User";
 import Footer from "../components/Footer";
+import AlertModal from "../components/AlertModal";
+const API_BASE = process.env.REACT_APP_API_URL;
+
 
 const topics = [
-  "Budgeting Basics",
-  "Credit Scores",
-  "Savings Strategies",
-  "Investing 101",
-  "Debt Management",
-  "Compound Interest",
-  "Retirement Planning",
-  "Emergency Fund",
-  "Stock Market Basics",
-  "Tax Planning",
-  "Frugality Tips",
-  "Expense Tracking",
-  "Mortgage Education",
-  "Financial Independence",
-  "Passive Income",
-  "Inflation Effects",
-  "Side Hustles",
-  "Cryptocurrency Basics",
-  "Loan Types",
-  "Insurance Essentials",
-  "401(k) and IRAs",
-  "Economic Cycles",
-  "Net Worth Calculation",
-  "Banking Services",
-  "Credit Card Management",
+  "Saved at least $5 this week",
+  "Tracked all expenses for the week",
+  "Reviewed your budget or spending plan",
+  "Added money to your savings account",
+  "Skipped one unnecessary purchase",
+  "Brought lunch from home all week",
+  "Used a cashback or rewards app this week",
+  "Put money from a side hustle into savings",
+  "Watched or read one financial education resource",
+  "Used a budgeting app to review weekly spending",
+  "Saved a percentage of weekly earnings",
+  "Compared prices before making a purchase",
+  "Logged into your bank account to check balances",
+  "Transferred money into an investment account",
+  "Spent less than you earned this week",
+  "Chose a free or low-cost activity instead of spending",
+  "Avoided impulse purchases for the entire week",
+  "Added to your financial goals list or tracker",
+  "Paid off part of a credit card or loan (if applicable)",
+  "Talked to someone about a money goal or question",
+  "Used coupons or promo codes when shopping",
+  "Tracked subscriptions or recurring payments",
+  "Read or watched a video about credit or investing",
+  "Logged your weekly financial wins in a journal",
+  "Reflected on one spending habit to improve"
 ];
 
 const generateBingoBoard = () => {
@@ -39,15 +42,65 @@ const generateBingoBoard = () => {
   }));
 };
 
+const checkBingo = (board) => {
+  const size = 5;
+
+  for (let r = 0; r < size; r++) {
+    if (board.slice(r * size, r * size + size).every((c) => c.marked)) return true;
+  }
+
+  for (let c = 0; c < size; c++) {
+    if (Array.from({ length: size }, (_, i) => board[c + i * size]).every((c) => c.marked))
+      return true;
+  }
+
+  if (Array.from({ length: size }, (_, i) => board[i * (size + 1)]).every((c) => c.marked))
+    return true;
+
+  if (Array.from({ length: size }, (_, i) => board[(i + 1) * (size - 1)]).every((c) => c.marked))
+    return true;
+
+  return false;
+};
+
 function Bingo() {
   const [board, setBoard] = useState(generateBingoBoard());
+  const [hasAwarded, setHasAwarded] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+
+  const handlePointsAwarded = (points) => {
+    setAlertMessage(`🎉 Bingo! You have ${points} points!`);
+    setShowModal(true);
+    setTimeout(() => {
+      setBoard(generateBingoBoard());
+      setHasAwarded(false);
+    }, 2500);
+  };
 
   const toggleMark = (id) => {
-    setBoard((prevBoard) =>
-      prevBoard.map((cell) =>
+    setBoard((prev) => {
+      const next = prev.map((cell) =>
         cell.id === id ? { ...cell, marked: !cell.marked } : cell
-      )
-    );
+      );
+
+      if (checkBingo(next) && !hasAwarded) {
+        setHasAwarded(true);
+        fetch(`http://localhost:8000/api/award_points/`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("authToken")}`,
+          },
+          body: JSON.stringify({ points: 50 }),
+        })
+          .then((res) => res.json())
+          .then((data) => handlePointsAwarded(data.points))
+          .catch((err) => console.error("Award points failed:", err));
+      }
+
+      return next;
+    });
   };
 
   const markedCount = board.filter((cell) => cell.marked).length;
@@ -63,9 +116,7 @@ function Bingo() {
           Directions: Welcome to Financial Literacy Bingo! Click on each square
           as you encounter or act on the financial topic displayed. Your goal is
           to mark 5 topics in a row (vertically, horizontally, or diagonally) to
-          win 50 points! Use this game as a fun way to test your knowledge or
-          spark discussion about important money concepts. Hit "Reset Board" at
-          any time to shuffle and start fresh!
+          win 50 points! Hit "Reset Board" at any time to shuffle and start fresh!
         </h3>
         <p className="text-center mb-4 text-gray-600">
           Marked: <span className="font-semibold">{markedCount}</span> / 25
@@ -97,17 +148,27 @@ function Bingo() {
             </div>
           ))}
         </div>
+
         <div className="flex justify-center mt-8">
           <button
             className="px-6 py-3 bg-green-600 text-white rounded-lg shadow hover:bg-blue-700 transition duration-200"
-            onClick={() => setBoard(generateBingoBoard())}
+            onClick={() => {
+              setBoard(generateBingoBoard());
+              setHasAwarded(false);
+            }}
           >
-            {" "}
-            Reset Board{" "}
+            Reset Board
           </button>
         </div>
       </main>
+
       <Footer />
+
+      <AlertModal
+        show={showModal}
+        message={alertMessage}
+        onClose={() => setShowModal(false)}
+      />
     </div>
   );
 }

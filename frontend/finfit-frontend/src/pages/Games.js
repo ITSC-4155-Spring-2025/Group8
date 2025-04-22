@@ -6,37 +6,37 @@ import SavingsImg from "../assets/images/sprint.jpeg";
 import TriviaImg from "../assets/images/trivia.jpeg";
 import Footer from "../components/Footer";
 
-const games = [
-  {
-    id: "Bingo",
-    title: "Financial Bingo",
-    description:
-      "Mark financial terms on your bingo card as you learn key concepts.",
-    image: BingoImg,
-  },
-  {
-    id: "Memory",
-    title: "Money Match",
-    description:
-      "Match financial terms with their definitions in this memory game.",
-    image: MemoryImg,
-  },
-  {
-    id: "Savings-sprint",
-    title: "Savings Sprint",
-    description:
-      "Make smart financial choices throughout the month to save money.",
-    image: SavingsImg,
-  },
-  {
-    id: "Trivia",
-    title: "Financial Trivia Wheel",
-    description: "Spin the wheel and answer financial literacy questions!",
-    image: TriviaImg,
-  },
-];
 function Games() {
   const navigate = useNavigate();
+  const games = [
+    {
+      id: "Bingo",
+      title: "Financial Bingo",
+      description:
+        "Mark financial terms on your bingo card as you learn key concepts.",
+      image: BingoImg,
+    },
+    {
+      id: "Memory",
+      title: "Money Match",
+      description:
+        "Match financial terms with their definitions in this memory game.",
+      image: MemoryImg,
+    },
+    {
+      id: "Savings-sprint",
+      title: "Savings Sprint",
+      description:
+        "Make smart financial choices throughout the month to save money.",
+      image: SavingsImg,
+    },
+    {
+      id: "Trivia",
+      title: "Financial Trivia Wheel",
+      description: "Spin the wheel and answer financial literacy questions!",
+      image: TriviaImg,
+    },
+  ];
 
   return (
     <div className="bg-[radial-gradient(circle_at_top,_#d1fae5,_#ffffff_60%,_#d1fae5)]">

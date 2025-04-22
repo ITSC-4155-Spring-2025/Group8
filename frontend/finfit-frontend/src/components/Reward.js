@@ -1,4 +1,3 @@
-// src/Reward.js
 import React from "react";
 
 const Reward = ({ imageSrc, title, buttonText, points }) => {
@@ -22,7 +21,7 @@ const Reward = ({ imageSrc, title, buttonText, points }) => {
       <div className="px-6 pb-4">
         <button
           className="block mx-auto bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-xl"
-          onClick={() => alert("Button clicked!")}
+          onClick={() => alert("You don't have enough points!")}
         >
           {buttonText}
         </button>

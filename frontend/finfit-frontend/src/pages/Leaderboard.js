@@ -7,15 +7,30 @@ function Leaderboard() {
   const [scores, setScores] = useState([]);
 
   useEffect(() => {
-    const initialScores = [
-      { id: 1, name: "Player 1", score: 100 },
-      { id: 2, name: "Player 2", score: 80 },
-      { id: 3, name: "Player 3", score: 100 },
-    ];
-    setScores(initialScores);
+    const fetchLeaderboard = async () => {
+      try {
+        const response = await fetch("http://localhost:8000/api/leaderboard/", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${localStorage.getItem("authToken")}`,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch leaderboard");
+        }
+        const data = await response.json();
+        setScores(data);
+      } catch (error) {
+        console.error("Error fetching leaderboard data:", error);
+      }
+    };
+
+    fetchLeaderboard();
   }, []);
 
-  const sortedScores = [...scores].sort((a, b) => b.score - a.score);
+  const sortedScores = [...scores].sort((a, b) => b.points - a.points);
 
   return (
     <div className="flex flex-col min-h-screen bg-[radial-gradient(circle_at_top,_#d1fae5,_#ffffff_60%,_#d1fae5)] text-gray-800">
@@ -44,12 +59,12 @@ function Leaderboard() {
             <tbody>
               {sortedScores.map((player, index) => (
                 <tr
-                  key={player.id}
+                  key={index}
                   className="border-b hover:bg-green-50 transition"
                 >
                   <td className="py-4 px-6">{index + 1}</td>
-                  <td className="py-4 px-6">{player.name}</td>
-                  <td className="py-4 px-6">{player.score}</td>
+                  <td className="py-4 px-6">{player.username}</td>
+                  <td className="py-4 px-6">{player.points}</td>
                 </tr>
               ))}
             </tbody>
@@ -58,7 +73,7 @@ function Leaderboard() {
 
         <div className="text-center mt-10">
           <Link
-            to="/"
+            to="/Dashboard"
             className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow"
           >
             Back to Home

@@ -27,7 +27,6 @@ function Login() {
       <Link to="/" className=" top-4 left-4">
         <img src="/back.png" className=" w-[40px] ml-5 pt-5" />
       </Link>
-
       <div className="flex w-full h-screen items-center justify-center mt-[-80px]">
         {content}
       </div>
