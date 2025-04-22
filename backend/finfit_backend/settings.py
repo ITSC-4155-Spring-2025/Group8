@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+AUTH_USER_MODEL = 'api.CustomUser'
 # Application definition
 
 INSTALLED_APPS = [
@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'finfit_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'finfit_tables',
-        'USER': 'root',
-        'PASSWORD': 'ShlokSingh1234',
+        'NAME': 'finfit_new',
+        'USER': 'django_user',
+        'PASSWORD': 'FinFitAdmin',
         'HOST': 'localhost',
         'PORT': '3306',
     }

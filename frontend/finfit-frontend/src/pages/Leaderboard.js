@@ -7,21 +7,19 @@ function Leaderboard() {
   const [scores, setScores] = useState([]);
 
   useEffect(() => {
-    // leaderboard fetch logic
     const fetchLeaderboard = async () => {
       try {
         const response = await fetch("http://localhost:8000/api/leaderboard/", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Token ${localStorage.getItem("authToken")}`,
+            Authorization: `Token ${localStorage.getItem("authToken")}`,
           },
         });
 
         if (!response.ok) {
           throw new Error("Failed to fetch leaderboard");
         }
-
         const data = await response.json();
         setScores(data);
       } catch (error) {
@@ -61,11 +59,11 @@ function Leaderboard() {
             <tbody>
               {sortedScores.map((player, index) => (
                 <tr
-                  key={player.user}
+                  key={index}
                   className="border-b hover:bg-green-50 transition"
                 >
                   <td className="py-4 px-6">{index + 1}</td>
-                  <td className="py-4 px-6">{player.user}</td>
+                  <td className="py-4 px-6">{player.username}</td>
                   <td className="py-4 px-6">{player.points}</td>
                 </tr>
               ))}
@@ -75,7 +73,7 @@ function Leaderboard() {
 
         <div className="text-center mt-10">
           <Link
-            to="/"
+            to="/Dashboard"
             className="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow"
           >
             Back to Home
