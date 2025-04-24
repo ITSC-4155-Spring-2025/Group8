@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import NavbarUser from "../components/Navbar_User";
+import NavbarUser from "../components/NavbarUser";
 import Footer from "../components/Footer";
 
 function Learning() {

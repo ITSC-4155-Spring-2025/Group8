@@ -37,7 +37,7 @@ function SignUp({ handleLoginClick }) {
       if (response.ok) {
         localStorage.setItem("authToken", data.token);
         alert("Sign Up successful!");
-        window.location.href = "/User";
+        window.location.href = "/Dashboard";
       } else {
         alert(data.error || "Sign Up failed");
       }

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Navbar_User from "../components/Navbar_User";
+import NavbarUser from "../components/NavbarUser";
 import BingoImg from "../assets/images/bingo.jpeg";
 import MemoryImg from "../assets/images/matching.jpeg";
 import SavingsImg from "../assets/images/sprint.jpeg";
@@ -40,7 +40,7 @@ function Games() {
 
   return (
     <div className="bg-[radial-gradient(circle_at_top,_#d1fae5,_#ffffff_60%,_#d1fae5)]">
-      <Navbar_User />
+      <NavbarUser />
       <div className="container mx-auto p-6">
         <h1 className="text-3xl font-bold text-center mb-6">
           Choose a Financial Game

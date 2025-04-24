@@ -1,9 +1,8 @@
-import React, { useState, useEffect} from "react";
-import Navbar_User from "../components/Navbar_User";
+import React, { useState, useEffect } from "react";
+import Navbar_User from "../components/NavbarUser";
 import Footer from "../components/Footer";
 import AlertModal from "../components/AlertModal";
 const API_BASE = process.env.REACT_APP_API_URL;
-
 
 const topics = [
   "Saved at least $5 this week",
@@ -30,7 +29,7 @@ const topics = [
   "Tracked subscriptions or recurring payments",
   "Read or watched a video about credit or investing",
   "Logged your weekly financial wins in a journal",
-  "Reflected on one spending habit to improve"
+  "Reflected on one spending habit to improve",
 ];
 
 const generateBingoBoard = () => {
@@ -46,18 +45,31 @@ const checkBingo = (board) => {
   const size = 5;
 
   for (let r = 0; r < size; r++) {
-    if (board.slice(r * size, r * size + size).every((c) => c.marked)) return true;
-  }
-
-  for (let c = 0; c < size; c++) {
-    if (Array.from({ length: size }, (_, i) => board[c + i * size]).every((c) => c.marked))
+    if (board.slice(r * size, r * size + size).every((c) => c.marked))
       return true;
   }
 
-  if (Array.from({ length: size }, (_, i) => board[i * (size + 1)]).every((c) => c.marked))
+  for (let c = 0; c < size; c++) {
+    if (
+      Array.from({ length: size }, (_, i) => board[c + i * size]).every(
+        (c) => c.marked
+      )
+    )
+      return true;
+  }
+
+  if (
+    Array.from({ length: size }, (_, i) => board[i * (size + 1)]).every(
+      (c) => c.marked
+    )
+  )
     return true;
 
-  if (Array.from({ length: size }, (_, i) => board[(i + 1) * (size - 1)]).every((c) => c.marked))
+  if (
+    Array.from({ length: size }, (_, i) => board[(i + 1) * (size - 1)]).every(
+      (c) => c.marked
+    )
+  )
     return true;
 
   return false;
@@ -116,7 +128,8 @@ function Bingo() {
           Directions: Welcome to Financial Literacy Bingo! Click on each square
           as you encounter or act on the financial topic displayed. Your goal is
           to mark 5 topics in a row (vertically, horizontally, or diagonally) to
-          win 50 points! Hit "Reset Board" at any time to shuffle and start fresh!
+          win 50 points! Hit "Reset Board" at any time to shuffle and start
+          fresh!
         </h3>
         <p className="text-center mb-4 text-gray-600">
           Marked: <span className="font-semibold">{markedCount}</span> / 25

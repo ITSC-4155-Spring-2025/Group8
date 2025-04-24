@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Trophy, BookOpen, Gamepad2, User } from "lucide-react";
+import { Trophy, BookOpen, Gamepad2 } from "lucide-react";
 
-import Navbar_User from "../components/Navbar_User";
+import NavbarUser from "../components/NavbarUser";
 import Footer from "../components/Footer";
 
 import BingoImg from "../assets/images/bingo.jpeg";
@@ -47,7 +47,7 @@ function Dashboard() {
 
   return (
     <div className="bg-[radial-gradient(circle_at_top,_#d1fae5,_#ffffff_60%,_#d1fae5)] min-h-screen">
-      <Navbar_User />
+      <NavbarUser />
 
       <div className="container mx-auto px-6 py-10">
         <h1 className="text-4xl font-bold text-green-600 mb-4">

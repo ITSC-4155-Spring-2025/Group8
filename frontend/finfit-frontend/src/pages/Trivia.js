@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Wheel } from "react-custom-roulette";
-import Navbar_User from "../components/Navbar_User";
+import NavbarUser from "../components/NavbarUser";
 import Footer from "../components/Footer";
 import AlertModal from "../components/AlertModal";
 
@@ -505,7 +505,7 @@ function Trivia() {
 
   return (
     <div className="bg-[radial-gradient(circle_at_top,_#d1fae5,_#ffffff_60%,_#d1fae5)]">
-      <Navbar_User />
+      <NavbarUser />
       <AlertModal
         show={showModal}
         onClose={() => setShowModal(false)}

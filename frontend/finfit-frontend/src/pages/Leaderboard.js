@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../components/Navbar_User";
+import NavbarUser from "../components/NavbarUser";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
@@ -34,7 +34,7 @@ function Leaderboard() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[radial-gradient(circle_at_top,_#d1fae5,_#ffffff_60%,_#d1fae5)] text-gray-800">
-      <Navbar />
+      <NavbarUser />
 
       <main className="flex-grow container mx-auto px-4 py-12">
         <h1 className="text-4xl font-bold text-center mb-8 text-green-600">

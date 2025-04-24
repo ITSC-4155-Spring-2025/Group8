@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { User } from "lucide-react";
 import React, { useState, useEffect } from "react";
 
-function Navbar_User() {
+function NavbarUser() {
   const [firstName, setFirstName] = useState("");
   useEffect(() => {
     const fetchUserData = async () => {
@@ -74,4 +74,4 @@ function Navbar_User() {
   );
 }
 
-export default Navbar_User;
+export default NavbarUser;

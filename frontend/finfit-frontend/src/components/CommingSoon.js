@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar_User from "../components/Navbar_User";
+import NavbarUser from "../components/NavbarUser";
 import Footer from "../components/Footer";
 
 export default function ComingSoon() {
@@ -8,7 +8,7 @@ export default function ComingSoon() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-green-100 flex flex-col">
-      <Navbar_User />
+      <NavbarUser />
 
       <main className="flex-grow flex flex-col items-center justify-center text-center px-4 py-12">
         <h1 className="text-5xl font-bold text-green-700 mb-4">
