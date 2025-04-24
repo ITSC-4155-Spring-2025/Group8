@@ -36,80 +36,6 @@ We use GitHub tools to manage our backlog and track progress.
 
 ---
 
-# **Project Setup (Both Mac and Windows)**
-
-## **Step 1: Install Node.js**
-1. Download Node.js from: [Node.js official website](https://nodejs.org/en/)
-2. Install the **LTS (Long-Term Support) version**.
-3. After installation, verify it is installed by running:
-   ```bash
-   node -v
-   ```
-   If successful, it will return a version number.
-
----
-
-## **Step 2: Install Git**
-Git is required to download the project.
-
-1. Check if Git is installed by running:
-   ```bash
-   git --version
-   ```
-   If Git is not installed, download it from: [Git official website](https://git-scm.com/)
-
----
-
-## **Step 3: Clone the Project from GitHub**
-1. Open **Command Prompt (Windows)** or **Terminal (Mac/Linux)**.
-2. Navigate to the directory where you want to store the project (e.g., Desktop):
-   ```bash
-   cd Desktop
-   ```
-3. Clone the repository:
-   ```bash
-   git clone https://github.com/ITSC-4155-Spring-2025/Group8.git
-   ```
-4. Move into the project folder:
-   ```bash
-   cd Group8
-   ```
-
----
-
-## **Step 4: Frontend Setup**
-The frontend is the **user interface** of the project. We need to install dependencies and run it.
-
-### **Navigate to the Frontend Directory**
-```bash
-cd frontend/finfit-frontend
-```
-
-### **Install Frontend Dependencies**
-```bash
-npm install
-```
-
-### **Run the Frontend**
-```bash
-npm start
-```
-
-### **Access the Web Pages**
-- **User Page:** [http://localhost:3000/user](http://localhost:3000/user)
-- **Leaderboard Page:** [http://localhost:3000/leaderboard](http://localhost:3000/leaderboard)
-- **Login Page:** (http://localhost:3000/login)
-
----
-
-## **Repository Structure**
-- `/src`: Source code
-- `/docs`: Project documentation
-- `/tests`: Test cases
-- `/backlog`: Backlog items and sprint planning documents
-
----
-
 # **FinFit Project Setup (Mac & Windows)**
 
 ## **Step 1: Install Prerequisites**
@@ -221,8 +147,24 @@ INSERT INTO api_customuser (
 )
 VALUES
 ('pbkdf2_sha256$260000$hash1', NULL, 0, 'mintyFalcon23', 'Alice', 'Smith', 'minty.falcon23@example.com', 0, 1, NOW(), 100),
-('pbkdf2_sha256$260000$hash2', NULL, 0, 'cloudTrekker88', 'Bob', 'Johnson', 'cloud.trekker88@example.com', 0, 1, NOW(), 250);
--- (Continue with the rest of the demo users)
+('pbkdf2_sha256$260000$hash2', NULL, 0, 'cloudTrekker88', 'Bob', 'Johnson', 'cloud.trekker88@example.com', 0, 1, NOW(), 250),
+('pbkdf2_sha256$260000$hash1', NULL, 0, 'mintyFalcon23', 'Alice', 'Smith', 'minty.falcon23@example.com', 0, 1, NOW(), 100),
+('pbkdf2_sha256$260000$hash2', NULL, 0, 'cloudTrekker88', 'Bob', 'Johnson', 'cloud.trekker88@example.com', 0, 1, NOW(), 250),
+('pbkdf2_sha256$260000$hash3', NULL, 0, 'zenKoala17', 'Carol', 'Williams', 'zen.koala17@example.com', 0, 1, NOW(), 300),
+('pbkdf2_sha256$260000$hash4', NULL, 0, 'blazeWolf49', 'David', 'Brown', 'blaze.wolf49@example.com', 0, 1, NOW(), 350),
+('pbkdf2_sha256$260000$hash5', NULL, 0, 'aquaNinja55', 'Eve', 'Jones', 'aqua.ninja55@example.com', 0, 1, NOW(), 100),
+('pbkdf2_sha256$260000$hash6', NULL, 0, 'crimsonEcho33', 'Frank', 'Garcia', 'crimson.echo33@example.com', 0, 1, NOW(), 250),
+('pbkdf2_sha256$260000$hash7', NULL, 0, 'novaTiger91', 'Grace', 'Miller', 'nova.tiger91@example.com', 0, 1, NOW(), 450),
+('pbkdf2_sha256$260000$hash8', NULL, 0, 'stormPanda62', 'Hank', 'Davis', 'storm.panda62@example.com', 0, 1, NOW(), 86),
+('pbkdf2_sha256$260000$hash9', NULL, 0, 'glowFox12', 'Ivy', 'Martinez', 'glow.fox12@example.com', 0, 1, NOW(), 59),
+('pbkdf2_sha256$260000$hash10', NULL, 0, 'frostByte84', 'Jack', 'Hernandez', 'frost.byte84@example.com', 0, 1, NOW(), 93),
+('pbkdf2_sha256$260000$hash11', NULL, 0, 'neonRider76', 'Karen', 'Lopez', 'neon.rider76@example.com', 0, 1, NOW(), 61),
+('pbkdf2_sha256$260000$hash12', NULL, 0, 'plasmaOtter29', 'Leo', 'Gonzalez', 'plasma.otter29@example.com', 0, 1, NOW(), 88),
+('pbkdf2_sha256$260000$hash13', NULL, 0, 'sunburstOwl67', 'Mona', 'Wilson', 'sunburst.owl67@example.com', 0, 1, NOW(), 95),
+('pbkdf2_sha256$260000$hash14', NULL, 0, 'silverRaven90', 'Nick', 'Anderson', 'silver.raven90@example.com', 0, 1, NOW(), 76),
+('pbkdf2_sha256$260000$hash15', NULL, 0, 'echoShadow19', 'Olivia', 'Thomas', 'echo.shadow19@example.com', 0, 1, NOW(), 53),
+('pbkdf2_sha256$260000$hash16', NULL, 0, 'electricLynx38', 'Paul', 'Taylor', 'electric.lynx38@example.com', 0, 1, NOW(), 85);
+
 ```
 
 ---
@@ -255,10 +197,12 @@ npm start
 ---
 
 ## **Step 7: Access the Application**
-
 - **Main App:** [http://localhost:3000](http://localhost:3000)
 - **Dashboard:** [http://localhost:3000/dashboard](http://localhost:3000/dashboard)
 - **Leaderboard:** [http://localhost:3000/leaderboard](http://localhost:3000/leaderboard)
+- **Games:** [http://localhost:3000/leaderboard](http://localhost:3000/Games)
+- **User:** [http://localhost:3000/leaderboard](http://localhost:3000/User)
+- **Learning:** [http://localhost:3000/leaderboard](http://localhost:3000/Learning)
 - **Login Page:** [http://localhost:3000/login](http://localhost:3000/login)
 
 ## **Contributing to the Project**
