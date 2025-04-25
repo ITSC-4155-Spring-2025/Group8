@@ -47,6 +47,7 @@ We use GitHub tools to manage our backlog and track progress.
 ### ✅ Python (v3.9+)
 - Download: [Python Downloads](https://www.python.org/downloads/)
 - Make sure `pip` is included during installation
+- Make sure to also install Django
 
 ### ✅ Node.js (v16+)
 - Download: [Node.js Official Website](https://nodejs.org/en/)
@@ -100,8 +101,10 @@ cd backend/
 
 ### ✅ Install Required Python Packages (if needed)
 ```bash
-pip install pymysql
+pip install django pymysql djangorestframework
 pip install django-cors-headers
+pip install pymysql
+pip or python or python3
 ```
 
 ### ✅ Update `settings.py` Database Configuration
